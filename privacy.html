@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>MiseSync | O Seu Mise en Place Digital</title>
+    <title>Política de Privacidade | MiseSync</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
+    <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -23,391 +23,74 @@
                         "display": ["Inter", "sans-serif"],
                         "serif": ["Playfair Display", "serif"],
                     },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
                 },
             },
         }
     </script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .font-serif-italic {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
-    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-        
-        <!-- Navegação -->
-        <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-background-dark/80 backdrop-blur-md">
-            <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-                <div class="flex items-center gap-1">
-                    <span class="font-serif-italic text-2xl text-white">Mise</span>
-                    <span class="font-display font-bold text-2xl text-primary">Sync</span>
-                </div>
-                <nav class="hidden md:flex items-center gap-10">
-                    <a data-i18n="nav_features" class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#funcionalidades">Funcionalidades</a>
-                    <a data-i18n="nav_pricing" class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#pricing">Preços</a>
-                </nav>
-                <div class="flex items-center gap-4 md:gap-6">
-                    <select id="lang-switch" class="bg-transparent text-white text-sm font-medium cursor-pointer border-none p-0 focus:ring-0 appearance-none text-center outline-none">
-                        <option value="pt" class="text-black">PT</option>
-                        <option value="en" class="text-black">EN</option>
-                    </select>
-                    <a data-i18n="nav_login" class="text-sm font-semibold text-white hover:underline underline-offset-4" href="#">Login</a>
-                    <button class="md:hidden text-white">
-                        <span class="material-symbols-outlined">menu</span>
-                    </button>
-                </div>
+<body class="bg-background-dark text-slate-100 antialiased flex flex-col min-h-screen">
+    
+    <!-- Navegação Simples (Apenas Voltar) -->
+    <header class="w-full border-b border-white/10 bg-background-dark/80 backdrop-blur-md">
+        <div class="mx-auto flex max-w-4xl items-center px-6 py-4">
+            <a href="index.html" class="flex items-center gap-2 text-text-muted hover:text-white transition-colors">
+                <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+                <span class="text-sm font-medium">Voltar à página principal</span>
+            </a>
+            <div class="ml-auto flex items-center gap-1">
+                <span class="font-serif italic text-xl text-white">Mise</span>
+                <span class="font-display font-bold text-xl text-primary">Sync</span>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <main class="flex-grow">
-            <!-- Hero Section -->
-            <section class="mx-auto max-w-7xl px-6 py-16 lg:py-24">
-                <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-                    <div class="flex flex-col gap-8">
-                        <div>
-                            <span data-i18n="hero_badge" class="inline-flex items-center rounded-full bg-primary px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-black">
-                                Acesso Antecipado B2B
-                            </span>
-                        </div>
-                        <h1 data-i18n="hero_title" class="font-serif text-5xl font-bold leading-tight text-white lg:text-7xl">
-                            O Seu <span class="font-serif-italic">Mise en Place</span> Digital.
-                        </h1>
-                        <p data-i18n="hero_desc" class="max-w-xl text-lg leading-relaxed text-text-muted">
-                            A plataforma inteligente para catering, chefs privados e venda de kits de refeições prontas. Sincronize pedidos, agenda e compras num único dashboard. Sem falhas, sem desperdício.
-                        </p>
-                        <div class="w-full max-w-md">
-                            <form action="https://formspree.io/f/mwvrnpvn" method="POST" class="flex flex-col gap-3 sm:flex-row sm:items-center p-2 rounded-xl bg-neutral-dark border border-white/5 shadow-2xl">
-                                <div class="relative flex-grow">
-                                    <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-text-muted">
-                                        <span class="material-symbols-outlined text-[20px]">mail</span>
-                                    </div>
-                                    <input data-i18n="hero_placeholder" name="email" class="w-full border-none bg-transparent pl-10 pr-4 py-3 text-white placeholder:text-text-muted focus:ring-0 focus:outline-none text-sm" placeholder="O seu email profissional" type="email" required/>
-                                </div>
-                                <button data-i18n="hero_btn" class="bg-primary hover:bg-primary/90 text-black font-bold py-3 px-6 rounded-lg transition-all active:scale-95 whitespace-nowrap text-sm" type="submit">
-                                    Pedir Acesso
-                                </button>
-                            </form>
-                            <p data-i18n="hero_waitlist" class="mt-3 text-xs text-text-muted/60 px-2 italic">Junte-se a mais de 200 chefs na lista de espera.</p>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <div class="relative z-10 overflow-hidden rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                            <img alt="Família a ser servida por um Chef em casa" class="aspect-[4/3] w-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700" src="landing page image_misesync.jpg" onerror="this.src='https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80'"/>
-                        </div>
-                        <div class="absolute -bottom-6 -right-6 -z-10 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
-                        <div class="absolute -top-10 -left-10 -z-10 h-48 w-48 rounded-full bg-blue-500/5 blur-3xl"></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Secção: Filosofia MiseSync -->
-            <section class="border-t border-white/5 bg-neutral-dark/30 py-16">
-                <div class="mx-auto max-w-4xl px-6 text-center">
-                    <blockquote class="font-serif italic text-3xl md:text-5xl text-white leading-snug mb-8 relative">
-                        <span class="absolute -top-6 -left-8 text-primary opacity-30 text-8xl font-serif">"</span>
-                        <span data-i18n="phil_quote">A perfect service starts long before the fire is lit. Your software should too.</span>
-                        <span class="absolute -bottom-12 -right-4 text-primary opacity-30 text-8xl font-serif">"</span>
-                    </blockquote>
-                    <p data-i18n="phil_author" class="font-display font-bold text-primary tracking-[0.2em] uppercase text-sm mt-8">
-                        MiseSync Core Philosophy
-                    </p>
-                </div>
-            </section>
-
-            <!-- Resumo de Funcionalidades -->
-            <section id="funcionalidades" class="border-t border-white/5 bg-background-dark py-20">
-                <div class="mx-auto max-w-7xl px-6">
-                    <div class="text-center max-w-2xl mx-auto mb-16">
-                        <h2 data-i18n="feat_badge" class="text-primary font-bold tracking-wider uppercase text-sm mb-2">Vantagens</h2>
-                        <h3 data-i18n="feat_title" class="font-serif text-4xl font-bold text-white mb-4">Tudo no seu lugar</h3>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                        <div class="flex flex-col gap-4">
-                            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/20 text-primary">
-                                <span class="material-symbols-outlined">calendar_today</span>
-                            </div>
-                            <h3 data-i18n="feat_1_title" class="text-xl font-bold text-white">Agenda Centralizada</h3>
-                            <p data-i18n="feat_1_desc" class="text-text-muted leading-relaxed">Visualize todos os seus eventos e prazos de produção numa interface intuitiva.</p>
-                        </div>
-                        <div class="flex flex-col gap-4">
-                            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/20 text-primary">
-                                <span class="material-symbols-outlined">inventory_2</span>
-                            </div>
-                            <h3 data-i18n="feat_2_title" class="text-xl font-bold text-white">Gestão de Insumos</h3>
-                            <p data-i18n="feat_2_desc" class="text-text-muted leading-relaxed">Cálculo automático de compras baseado no seu menu e número de convidados.</p>
-                        </div>
-                        <div class="flex flex-col gap-4">
-                            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/20 text-primary">
-                                <span class="material-symbols-outlined">analytics</span>
-                            </div>
-                            <h3 data-i18n="feat_3_title" class="text-xl font-bold text-white">Controle de Custos</h3>
-                            <p data-i18n="feat_3_desc" class="text-text-muted leading-relaxed">Monitore margens em tempo real e reduza o desperdício alimentar drasticamente.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Secção de Preços (Pricing) -->
-            <section id="pricing" class="relative py-20 bg-neutral-dark/30 border-t border-white/5 overflow-hidden">
-                <div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-                    <div class="w-[800px] h-[400px] bg-primary blur-[120px] rounded-full"></div>
-                </div>
+    <!-- Conteúdo Principal -->
+    <main class="flex-grow w-full">
+        <div class="mx-auto max-w-4xl px-6 py-16">
+            <h1 class="font-serif text-4xl font-bold text-white mb-6">Política de Privacidade</h1>
+            <p class="text-text-muted mb-10"><strong>Última atualização: Março de 2026</strong></p>
+            
+            <div class="flex flex-col gap-6 text-slate-300 leading-relaxed">
+                <p>A <strong class="text-white">MiseSync</strong> respeita a sua privacidade e compromete-se a proteger os seus dados pessoais. Esta Política de Privacidade explica como recolhemos, usamos e protegemos a informação que nos fornece através da nossa landing page (misesync.com) durante a nossa fase de Acesso Antecipado (Lista de Espera/Beta).</p>
                 
-                <div class="relative mx-auto max-w-7xl px-6 z-10">
-                    <div class="text-center max-w-2xl mx-auto mb-16">
-                        <h2 data-i18n="price_badge" class="text-primary font-bold tracking-wider uppercase text-sm mb-2">Investimento</h2>
-                        <h3 data-i18n="price_title" class="font-serif text-4xl font-bold text-white mb-4">Escolha o seu Mise en Place</h3>
-                        <p data-i18n="price_desc" class="text-text-muted text-lg">Planos desenhados para escalar com o seu negócio alimentar, desde o chef independente até operações de catering completas.</p>
-                    </div>
+                <h2 class="text-2xl font-serif font-bold text-white mt-6 text-primary">1. Que dados recolhemos?</h2>
+                <p>Nesta fase de pré-lançamento, recolhemos apenas os dados estritamente necessários fornecidos voluntariamente por si através do nosso formulário de contacto:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Endereço de e-mail profissional.</li>
+                </ul>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                        
-                        <!-- Plano 1: Solo Chef -->
-                        <div class="bg-background-dark rounded-2xl border border-white/5 p-8 hover:border-white/10 transition-colors">
-                            <h4 data-i18n="p1_title" class="text-white text-xl font-bold mb-2">Solo Chef</h4>
-                            <p data-i18n="p1_desc" class="text-text-muted text-sm mb-6">Perfeito para chefs privados e pequenos negócios de kits.</p>
-                            <div class="mb-6">
-                                <span data-i18n="p1_price" class="text-4xl font-bold text-white">€29</span><span data-i18n="p1_mo" class="text-text-muted">/mês</span>
-                            </div>
-                            <ul class="flex flex-col gap-4 mb-8 text-slate-300 text-sm">
-                                <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="p1_f1">1 Utilizador (Admin)</span></li>
-                                <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="p1_f2">Agenda de Eventos & Kits</span></li>
-                                <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="p1_f3">Fichas Técnicas (Até 50)</span></li>
-                                <li class="flex items-center gap-3"><span class="material-symbols-outlined text-text-muted/30 text-[20px]">cancel</span> <span data-i18n="p1_f4">Sem Módulo POS (Festivais)</span></li>
-                            </ul>
-                            <button data-i18n="p1_btn" class="w-full py-3 rounded-lg border border-white/20 text-white font-medium hover:bg-white/5 transition-colors">Pedir Acesso Beta</button>
-                        </div>
+                <h2 class="text-2xl font-serif font-bold text-white mt-6 text-primary">2. Como usamos os seus dados?</h2>
+                <p>O seu e-mail será utilizado exclusivamente para os seguintes fins:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Adicionar o seu contacto à nossa lista de espera (Waitlist) B2B.</li>
+                    <li>Enviar atualizações sobre o desenvolvimento da plataforma MiseSync.</li>
+                    <li>Enviar o convite para acesso à nossa fase de testes (Branch Beta) ou lançamento oficial.</li>
+                </ul>
 
-                        <!-- Plano 2: Híbrido (Destaque) -->
-                        <div class="bg-background-dark rounded-2xl border-2 border-primary p-8 relative transform md:-translate-y-4 shadow-2xl shadow-primary/10 z-20">
-                            <div data-i18n="p2_badge" class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-background-dark text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full">
-                                Mais Popular
-                            </div>
-                            <h4 data-i18n="p2_title" class="text-white text-xl font-bold mb-2">Híbrido</h4>
-                            <p data-i18n="p2_desc" class="text-text-muted text-sm mb-6">Para equipas que combinam eventos, produção de kits e gestão personalizada de clientes.</p>
-                            <div class="mb-6">
-                                <span data-i18n="p2_price" class="text-4xl font-bold text-white">€79</span><span data-i18n="p2_mo" class="text-text-muted">/mês</span>
-                            </div>
-                            <ul class="flex flex-col gap-4 mb-8 text-slate-300 text-sm">
-                                <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="p2_f1">Até 5 Utilizadores (Staff)</span></li>
-                                <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="p2_f2">Módulo POS de Venda Rápida</span></li>
-                                <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="p2_f3">Gestão de Stock e Alertas</span></li>
-                                <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="p2_f4">Wallets & Histórico de Clientes</span></li>
-                            </ul>
-                            <button data-i18n="p2_btn" class="w-full py-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">Pedir Acesso Beta</button>
-                        </div>
+                <h2 class="text-2xl font-serif font-bold text-white mt-6 text-primary">3. Como guardamos os seus dados?</h2>
+                <p>Os dados submetidos no nosso formulário são processados e armazenados de forma segura através do serviço de formulários <em>Formspree</em>, que atua como nosso processador de dados, cumprindo as normas de segurança padrão da indústria. Não partilhamos, vendemos ou alugamos o seu e-mail a terceiros.</p>
 
-                        <!-- Plano 3: Enterprise -->
-                        <div class="bg-background-dark rounded-2xl border border-white/5 p-8 hover:border-white/10 transition-colors">
-                            <h4 data-i18n="p3_title" class="text-white text-xl font-bold mb-2">Catering Pro</h4>
-                            <p data-i18n="p3_desc" class="text-text-muted text-sm mb-6">Para operações de grande escala e cozinhas industriais.</p>
-                            <div class="mb-6">
-                                <span data-i18n="p3_price" class="text-3xl font-bold text-white">Personalizado</span>
-                            </div>
-                            <ul class="flex flex-col gap-4 mb-8 text-slate-300 text-sm">
-                                <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="p3_f1">Utilizadores Ilimitados</span></li>
-                                <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="p3_f2">Múltiplos Armazéns</span></li>
-                                <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="p3_f3">Exportação de Faturação</span></li>
-                                <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> <span data-i18n="p3_f4">Suporte Dedicado 24/7</span></li>
-                            </ul>
-                            <button data-i18n="p3_btn" class="w-full py-3 rounded-lg border border-white/20 text-white font-medium hover:bg-white/5 transition-colors">Fale Connosco</button>
-                        </div>
+                <h2 class="text-2xl font-serif font-bold text-white mt-6 text-primary">4. Os seus direitos (RGPD)</h2>
+                <p>Ao abrigo do Regulamento Geral sobre a Proteção de Dados (RGPD), tem o direito de:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Solicitar o acesso aos dados que temos sobre si.</li>
+                    <li>Solicitar a retificação de dados incorretos.</li>
+                    <li>Solicitar o apagamento do seu e-mail da nossa base de dados (Direito a ser esquecido).</li>
+                </ul>
+                <p>Para exercer qualquer um destes direitos, basta contactar-nos respondendo a qualquer e-mail nosso ou enviando-nos um pedido direto para o nosso e-mail de suporte.</p>
 
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Rodapé -->
-        <footer class="border-t border-white/10 bg-background-dark py-12">
-            <div class="mx-auto max-w-7xl px-6">
-                <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
-                    <div class="flex items-center gap-1">
-                        <span class="font-serif-italic text-xl text-white">Mise</span>
-                        <span class="font-display font-bold text-xl text-primary">Sync</span>
-                    </div>
-                    <div class="flex flex-wrap justify-center gap-8">
-                        <a data-i18n="foot_priv" class="text-sm text-text-muted hover:text-white transition-colors" href="privacy.html">Privacidade</a>
-                        <a data-i18n="foot_terms" class="text-sm text-text-muted hover:text-white transition-colors" href="terms.html">Termos de Serviço</a>
-                        <a data-i18n="foot_contact" class="text-sm text-text-muted hover:text-white transition-colors" href="mailto:support@misesync.com">Contacto</a>
-                    </div>
-                    <p data-i18n="foot_copy" class="text-sm text-text-muted">
-                        © 2026 MiseSync. Todos os direitos reservados.
-                    </p>
-                </div>
+                <h2 class="text-2xl font-serif font-bold text-white mt-6 text-primary">5. Contactos</h2>
+                <p>Para qualquer questão relacionada com a sua privacidade ou para exercer os seus direitos, por favor, contacte-nos através do e-mail: <br>
+                <a href="mailto:support@misesync.com" class="text-primary hover:underline font-medium">support@misesync.com</a></p>
             </div>
-        </footer>
-    </div>
+        </div>
+    </main>
 
-    <!-- Script de Internacionalização (Multi-idioma) -->
-    <script>
-        const i18n = {
-            pt: {
-                nav_features: "Funcionalidades",
-                nav_pricing: "Preços",
-                nav_login: "Login",
-                hero_badge: "Acesso Antecipado B2B",
-                hero_title: 'O Seu <span class="font-serif-italic">Mise en Place</span> Digital.',
-                hero_desc: "A plataforma inteligente para catering, chefs privados e venda de kits de refeições prontas. Sincronize pedidos, agenda e compras num único dashboard. Sem falhas, sem desperdício.",
-                hero_placeholder: "O seu email profissional",
-                hero_btn: "Pedir Acesso",
-                hero_waitlist: "Junte-se a mais de 200 chefs na lista de espera.",
-                phil_quote: "A perfect service starts long before the fire is lit. Your software should too.",
-                phil_author: "MiseSync Core Philosophy",
-                feat_badge: "Vantagens",
-                feat_title: "Tudo no seu lugar",
-                feat_1_title: "Agenda Centralizada",
-                feat_1_desc: "Visualize todos os seus eventos e prazos de produção numa interface intuitiva.",
-                feat_2_title: "Gestão de Insumos",
-                feat_2_desc: "Cálculo automático de compras baseado no seu menu e número de convidados.",
-                feat_3_title: "Controle de Custos",
-                feat_3_desc: "Monitore margens em tempo real e reduza o desperdício alimentar drasticamente.",
-                price_badge: "Investimento",
-                price_title: "Escolha o seu Mise en Place",
-                price_desc: "Planos desenhados para escalar com o seu negócio alimentar, desde o chef independente até operações de catering completas.",
-                p1_title: "Solo Chef",
-                p1_desc: "Perfeito para chefs privados e pequenos negócios de kits.",
-                p1_price: "€29",
-                p1_mo: "/mês",
-                p1_f1: "1 Utilizador (Admin)",
-                p1_f2: "Agenda de Eventos & Kits",
-                p1_f3: "Fichas Técnicas (Até 50)",
-                p1_f4: "Sem Módulo POS (Festivais)",
-                p1_btn: "Pedir Acesso Beta",
-                p2_badge: "Mais Popular",
-                p2_title: "Híbrido",
-                p2_desc: "Para equipas que combinam eventos, produção de kits e gestão personalizada de clientes.",
-                p2_price: "€79",
-                p2_mo: "/mês",
-                p2_f1: "Até 5 Utilizadores (Staff)",
-                p2_f2: "Módulo POS de Venda Rápida",
-                p2_f3: "Gestão de Stock e Alertas",
-                p2_f4: "Wallets & Histórico de Clientes",
-                p2_btn: "Pedir Acesso Beta",
-                p3_title: "Catering Pro",
-                p3_desc: "Para operações de grande escala e cozinhas industriais.",
-                p3_price: "Personalizado",
-                p3_f1: "Utilizadores Ilimitados",
-                p3_f2: "Múltiplos Armazéns",
-                p3_f3: "Exportação de Faturação",
-                p3_f4: "Suporte Dedicado 24/7",
-                p3_btn: "Fale Connosco",
-                foot_priv: "Privacidade",
-                foot_terms: "Termos de Serviço",
-                foot_contact: "Contacto",
-                foot_copy: "© 2026 MiseSync. Todos os direitos reservados."
-            },
-            en: {
-                nav_features: "Features",
-                nav_pricing: "Pricing",
-                nav_login: "Login",
-                hero_badge: "B2B Early Access",
-                hero_title: 'Your Digital <span class="font-serif-italic">Mise en Place</span>.',
-                hero_desc: "The smart platform for catering, private chefs, and meal prep businesses. Synchronize orders, schedules, and groceries in a single dashboard. No flaws, no waste.",
-                hero_placeholder: "Your professional email",
-                hero_btn: "Request Access",
-                hero_waitlist: "Join over 200 chefs on the waitlist.",
-                phil_quote: "A perfect service starts long before the fire is lit. Your software should too.",
-                phil_author: "MiseSync Core Philosophy",
-                feat_badge: "Advantages",
-                feat_title: "Everything in its place",
-                feat_1_title: "Centralized Schedule",
-                feat_1_desc: "Visualize all your events and production deadlines in an intuitive interface.",
-                feat_2_title: "Grocery Management",
-                feat_2_desc: "Automatic grocery calculation based on your menu and guest count.",
-                feat_3_title: "Cost Control",
-                feat_3_desc: "Monitor margins in real-time and drastically reduce food waste.",
-                price_badge: "Investment",
-                price_title: "Choose your Mise en Place",
-                price_desc: "Plans designed to scale with your food business, from independent chefs to full catering operations.",
-                p1_title: "Solo Chef",
-                p1_desc: "Perfect for private chefs and small meal prep businesses.",
-                p1_price: "€29",
-                p1_mo: "/mo",
-                p1_f1: "1 User (Admin)",
-                p1_f2: "Event & Kit Scheduling",
-                p1_f3: "Recipe Cards (Up to 50)",
-                p1_f4: "No POS Module (Festivals)",
-                p1_btn: "Request Beta Access",
-                p2_badge: "Most Popular",
-                p2_title: "Hybrid",
-                p2_desc: "For teams combining events, kit production, and personalized client management.",
-                p2_price: "€79",
-                p2_mo: "/mo",
-                p2_f1: "Up to 5 Users (Staff)",
-                p2_f2: "Fast Sales POS Module",
-                p2_f3: "Stock Management & Alerts",
-                p2_f4: "Wallets & Client History",
-                p2_btn: "Request Beta Access",
-                p3_title: "Catering Pro",
-                p3_desc: "For large-scale operations and industrial kitchens.",
-                p3_price: "Custom",
-                p3_f1: "Unlimited Users",
-                p3_f2: "Multiple Warehouses",
-                p3_f3: "Billing Export",
-                p3_f4: "24/7 Dedicated Support",
-                p3_btn: "Contact Us",
-                foot_priv: "Privacy",
-                foot_terms: "Terms of Service",
-                foot_contact: "Contact",
-                foot_copy: "© 2026 MiseSync. All rights reserved."
-            }
-        };
-
-        function setLanguage(lang) {
-            // Guarda a língua escolhida na memória do browser
-            localStorage.setItem('misesync_lang', lang);
-            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-            
-            // Sincroniza o seletor visualmente se a função for chamada externamente
-            const selectEl = document.getElementById('lang-switch');
-            if (selectEl && selectEl.value !== lang) {
-                selectEl.value = lang;
-            }
-            
-            // Procura todos os elementos com o atributo 'data-i18n'
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (i18n[lang] && i18n[lang][key]) {
-                    // Verifica se o elemento é um input (para o placeholder) ou um texto normal
-                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                        el.placeholder = i18n[lang][key];
-                    } else {
-                        el.innerHTML = i18n[lang][key];
-                    }
-                }
-            });
-        }
-
-        // Executa quando a página acaba de carregar
-        document.addEventListener('DOMContentLoaded', () => {
-            // Lê a língua guardada anteriormente ou usa PT como defeito
-            const savedLang = localStorage.getItem('misesync_lang') || 'pt';
-            setLanguage(savedLang);
-
-            // Adiciona o "escutador" de cliques no menu da língua
-            const langSwitch = document.getElementById('lang-switch');
-            if (langSwitch) {
-                langSwitch.addEventListener('change', (e) => {
-                    setLanguage(e.target.value);
-                });
-            }
-        });
-    </script>
+    <!-- Rodapé Minimalista -->
+    <footer class="border-t border-white/10 bg-background-dark py-8 mt-auto">
+        <div class="mx-auto max-w-4xl px-6 text-center">
+            <p class="text-sm text-text-muted">© 2026 MiseSync. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>
