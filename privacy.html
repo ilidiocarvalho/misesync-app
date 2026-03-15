@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Política de Privacidade | MiseSync</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#82cb15",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#1A1E24",
+                        "neutral-dark": "#252A33",
+                        "text-muted": "#A1A1AA",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-dark text-slate-100 antialiased flex flex-col min-h-screen">
+    
+    <!-- Navegação Simples (Apenas Voltar) -->
+    <header class="w-full border-b border-white/10 bg-background-dark/80 backdrop-blur-md">
+        <div class="mx-auto flex max-w-4xl items-center px-6 py-4">
+            <a href="index.html" class="flex items-center gap-2 text-text-muted hover:text-white transition-colors">
+                <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+                <span class="text-sm font-medium">Voltar à página principal</span>
+            </a>
+            <div class="ml-auto flex items-center gap-1">
+                <span class="font-serif italic text-xl text-white">Mise</span>
+                <span class="font-display font-bold text-xl text-primary">Sync</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="flex-grow w-full">
+        <div class="mx-auto max-w-4xl px-6 py-16">
+            <h1 class="font-serif text-4xl font-bold text-white mb-6">Política de Privacidade</h1>
+            <p class="text-text-muted mb-10"><strong>Última atualização: Março de 2026</strong></p>
+            
+            <div class="flex flex-col gap-6 text-slate-300 leading-relaxed">
+                <p>A <strong class="text-white">MiseSync</strong> respeita a sua privacidade e compromete-se a proteger os seus dados pessoais. Esta Política de Privacidade explica como recolhemos, usamos e protegemos a informação que nos fornece através da nossa landing page (misesync.com) durante a nossa fase de Acesso Antecipado (Lista de Espera/Beta).</p>
+                
+                <h2 class="text-2xl font-serif font-bold text-white mt-6 text-primary">1. Que dados recolhemos?</h2>
+                <p>Nesta fase de pré-lançamento, recolhemos apenas os dados estritamente necessários fornecidos voluntariamente por si através do nosso formulário de contacto:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Endereço de e-mail profissional.</li>
+                </ul>
+
+                <h2 class="text-2xl font-serif font-bold text-white mt-6 text-primary">2. Como usamos os seus dados?</h2>
+                <p>O seu e-mail será utilizado exclusivamente para os seguintes fins:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Adicionar o seu contacto à nossa lista de espera (Waitlist) B2B.</li>
+                    <li>Enviar atualizações sobre o desenvolvimento da plataforma MiseSync.</li>
+                    <li>Enviar o convite para acesso à nossa fase de testes (Branch Beta) ou lançamento oficial.</li>
+                </ul>
+
+                <h2 class="text-2xl font-serif font-bold text-white mt-6 text-primary">3. Como guardamos os seus dados?</h2>
+                <p>Os dados submetidos no nosso formulário são processados e armazenados de forma segura através do serviço de formulários <em>Formspree</em>, que atua como nosso processador de dados, cumprindo as normas de segurança padrão da indústria. Não partilhamos, vendemos ou alugamos o seu e-mail a terceiros.</p>
+
+                <h2 class="text-2xl font-serif font-bold text-white mt-6 text-primary">4. Os seus direitos (RGPD)</h2>
+                <p>Ao abrigo do Regulamento Geral sobre a Proteção de Dados (RGPD), tem o direito de:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Solicitar o acesso aos dados que temos sobre si.</li>
+                    <li>Solicitar a retificação de dados incorretos.</li>
+                    <li>Solicitar o apagamento do seu e-mail da nossa base de dados (Direito a ser esquecido).</li>
+                </ul>
+                <p>Para exercer qualquer um destes direitos, basta contactar-nos respondendo a qualquer e-mail nosso ou enviando-nos um pedido direto.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé Minimalista -->
+    <footer class="border-t border-white/10 bg-background-dark py-8 mt-auto">
+        <div class="mx-auto max-w-4xl px-6 text-center">
+            <p class="text-sm text-text-muted">© 2026 MiseSync. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
