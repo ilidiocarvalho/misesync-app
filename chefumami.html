@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiseSync x Chef Umami | Proposta de Parceria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#82cb15',
+                        darkBg: '#1A1E24',
+                        cardBg: '#252A33',
+                        muted: '#A1A1AA',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+        section { scroll-snap-align: start; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; position: relative; overflow: hidden; }
+        .glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(130,203,21,0.06) 0%, rgba(26,30,36,0) 70%); border-radius: 50%; z-index: 0; pointer-events: none; }
+        .content-card { position: relative; z-index: 10; width: 100%; max-width: 1100px; }
+        body { background-color: #1A1E24; color: white; }
+    </style>
+</head>
+<body>
+
+    <!-- SECTION 1: TITLE -->
+    <section>
+        <div class="glow -top-48 -right-48"></div>
+        <div class="content-card text-center">
+            <h3 class="text-primary uppercase tracking-[4px] font-semibold mb-6 text-sm md:text-base">Apresentação de Parceria Tecnológica</h3>
+            <h1 class="font-serif text-5xl md:text-8xl font-bold mb-8">MiseSync x <br><span class="text-primary italic">Chef Umami</span></h1>
+            <p class="text-muted text-lg md:text-2xl max-w-3xl mx-auto leading-relaxed">
+                O vosso crescimento exige tecnologia de ponta. O nosso modelo elimina o risco financeiro de a terem.
+            </p>
+            <div class="mt-12 animate-bounce">
+                <i class="fa-solid fa-chevron-down text-primary text-2xl"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: O DESAFIO -->
+    <section class="bg-[#161a20]">
+        <div class="content-card">
+            <h2 class="font-serif text-4xl md:text-6xl mb-12 border-l-4 border-primary pl-8">O Teto de Vidro da <span class="text-primary italic text-3xl md:text-5xl block mt-2">Operação</span></h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <p class="text-xl text-white font-light">O talento culinário escala até certo ponto. A partir daí, a logística desorganizada torna-se o gargalo do vosso crescimento.</p>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <i class="fa-solid fa-circle-check text-primary text-xl mt-1"></i>
+                            <div>
+                                <strong class="block text-white text-lg">O Caos Tecnológico</strong>
+                                <span class="text-muted">Operações geridas por WhatsApp, Excel e anotações dispersas.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <i class="fa-solid fa-circle-check text-primary text-xl mt-1"></i>
+                            <div>
+                                <strong class="block text-white text-lg">Desperdício de Tempo</strong>
+                                <span class="text-muted">Horas perdidas na consolidação manual de pedidos e compras.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <i class="fa-solid fa-circle-check text-primary text-xl mt-1"></i>
+                            <div>
+                                <strong class="block text-white text-lg">Risco de Falhas</strong>
+                                <span class="text-muted">Perda de informação sobre alergias ou preferências de atletas de elite.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-2xl border border-white/5 grayscale-[30%] hover:grayscale-0 transition-all duration-700">
+                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1000&auto=format&fit=crop" alt="Cozinha Profissional" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: CONCEITO -->
+    <section>
+        <div class="glow bottom-0 left-0"></div>
+        <div class="content-card text-center">
+            <h2 class="font-serif text-4xl md:text-6xl mb-16 text-center">Foco no que <span class="text-primary italic">importa</span></h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-cardBg p-10 rounded-2xl border-t-4 border-white shadow-xl">
+                    <i class="fa-solid fa-star text-3xl mb-6"></i>
+                    <h3 class="font-serif text-3xl mb-4 text-white">O Vosso Frontend</h3>
+                    <p class="text-primary font-bold mb-4 uppercase tracking-widest text-sm">A Marca Chef Umami</p>
+                    <p class="text-muted">Nutrição de excelência, sabor, marketing e o Portal White-label onde o cliente final faz o pedido com a vossa estética.</p>
+                </div>
+                <div class="bg-cardBg p-10 rounded-2xl border-b-4 border-primary shadow-xl">
+                    <i class="fa-solid fa-server text-primary text-3xl mb-6"></i>
+                    <h3 class="font-serif text-3xl mb-4 text-white">O Nosso Backend</h3>
+                    <p class="text-primary font-bold mb-4 uppercase tracking-widest text-sm">O Motor MiseSync</p>
+                    <p class="text-muted">Dashboard oculto, automatização de compras, base de dados segura e atualizações constantes da plataforma.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: O DILEMA -->
+    <section class="bg-[#161a20]">
+        <div class="content-card">
+            <h2 class="font-serif text-4xl md:text-6xl mb-12 text-center">O Custo da <span class="text-primary italic text-3xl md:text-5xl block mt-2">Evolução</span></h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-cardBg p-8 rounded-xl border border-white/5 opacity-60">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Desenvolvimento Tradicional</h3>
+                    <div class="text-4xl font-serif text-center mb-8">€15.000 <span class="text-lg font-sans text-muted">a €30.000</span></div>
+                    <ul class="space-y-4 text-sm text-muted">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-xmark text-red-500"></i> Risco financeiro total no Cliente</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-xmark text-red-500"></i> Despesas Fixas Cloud elevadas</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-xmark text-red-500"></i> Alterações faturadas à hora</li>
+                    </ul>
+                </div>
+                <div class="bg-cardBg p-8 rounded-xl border-2 border-primary shadow-[0_0_40px_rgba(130,203,21,0.1)]">
+                    <h3 class="text-2xl font-bold mb-6 text-center text-primary">Parceria MiseSync (SaaS)</h3>
+                    <div class="text-4xl font-serif text-center mb-8 text-white">€0 <span class="text-lg font-sans text-muted">de Setup Inicial</span></div>
+                    <ul class="space-y-4 text-sm text-white">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-primary"></i> Eu assumo o investimento tecnológico</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-primary"></i> Servidores e suporte incluídos</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-primary"></i> Evolução gratuita e contínua</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: A PROPOSTA -->
+    <section>
+        <div class="content-card text-center">
+            <h2 class="font-serif text-4xl md:text-6xl mb-16">Estatuto <span class="text-primary italic">Fundador</span></h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-cardBg/50 p-8 rounded-2xl border border-white/5">
+                    <i class="fa-solid fa-shield-halved text-primary text-4xl mb-6"></i>
+                    <h4 class="text-xl font-bold mb-2">Setup Zero</h4>
+                    <p class="text-muted text-sm leading-relaxed">Economizam ~20.000€ em dev. Eu entrego o painel central pronto a usar.</p>
+                </div>
+                <div class="bg-cardBg/50 p-8 rounded-2xl border border-blue-500/30">
+                    <i class="fa-solid fa-flask text-blue-500 text-4xl mb-6"></i>
+                    <h4 class="text-xl font-bold mb-2 text-blue-500">3 a 6 Meses Beta</h4>
+                    <p class="text-muted text-sm leading-relaxed">Fase de testes e afinação totalmente gratuita. Uso real sem mensalidades.</p>
+                </div>
+                <div class="bg-cardBg/50 p-8 rounded-2xl border border-primary/30">
+                    <i class="fa-solid fa-tags text-primary text-4xl mb-6"></i>
+                    <h4 class="text-xl font-bold mb-2">55€ / mês</h4>
+                    <p class="text-muted text-sm leading-relaxed font-semibold text-primary">Desconto Vitalício Real</p>
+                    <p class="text-muted text-xs mt-2 italic">Sobre o preço base de 79€/mês.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: ROADMAP -->
+    <section class="bg-[#161a20]">
+        <div class="content-card">
+            <h2 class="font-serif text-4xl md:text-6xl mb-12 text-center">O <span class="text-primary italic">Caminho</span></h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="flex items-center gap-6 bg-cardBg p-4 rounded-xl border-l-4 border-primary">
+                    <span class="w-10 h-10 rounded-full bg-primary text-darkBg flex items-center justify-center font-bold">1</span>
+                    <div>
+                        <h4 class="font-bold text-white">A Decisão de Parceria (Hoje)</h4>
+                        <p class="text-muted text-sm">Acordo sobre as vantagens do modelo e entrada como Fundadores.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6 bg-cardBg p-4 rounded-xl border-l-4 border-white/10">
+                    <span class="w-10 h-10 rounded-full bg-darkBg text-white flex items-center justify-center font-bold border border-white/20">2</span>
+                    <div>
+                        <h4 class="font-bold text-white">Levantamento de Requisitos</h4>
+                        <p class="text-muted text-sm">Questionário onde vocês definem os vossos fluxos e pontos de dor.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6 bg-cardBg p-4 rounded-xl border-l-4 border-white/10">
+                    <span class="w-10 h-10 rounded-full bg-darkBg text-white flex items-center justify-center font-bold border border-white/20">3</span>
+                    <div>
+                        <h4 class="font-bold text-white">Prototipagem UX/UI</h4>
+                        <p class="text-muted text-sm">Apresentação de ecrãs visuais para aprovação antes do código.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6 bg-cardBg p-4 rounded-xl border-l-4 border-white/10">
+                    <span class="w-10 h-10 rounded-full bg-darkBg text-white flex items-center justify-center font-bold border border-white/20">4</span>
+                    <div>
+                        <h4 class="font-bold text-white">Laboratório Beta (3-6 meses)</h4>
+                        <p class="text-muted text-sm">Uso real gratuito na cozinha para testes de stress e afinação.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6 bg-cardBg p-4 rounded-xl border-l-4 border-white/10">
+                    <span class="w-10 h-10 rounded-full bg-darkBg text-white flex items-center justify-center font-bold border border-white/20">5</span>
+                    <div>
+                        <h4 class="font-bold text-white">Lançamento Oficial</h4>
+                        <p class="text-muted text-sm">Entrada em produção estável e ativação da mensalidade de parceiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: FINAL CALL -->
+    <section>
+        <div class="glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="content-card text-center">
+            <h2 class="font-serif text-4xl md:text-7xl mb-12">Uma Parceria de <br><span class="text-primary italic">Sucesso</span></h2>
+            <p class="text-xl md:text-2xl text-muted max-w-2xl mx-auto mb-16 leading-relaxed">
+                O nosso objetivo hoje é validar se este modelo faz sentido para alavancar o futuro da Chef Umami.
+            </p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <a href="mailto:support@misesync.com" class="bg-primary text-darkBg font-bold px-12 py-4 rounded-lg hover:scale-105 transition-all text-xl uppercase tracking-widest">Avançamos?</a>
+            </div>
+            <p class="mt-12 text-muted uppercase tracking-[3px] text-xs">misesync.com</p>
+        </div>
+    </section>
+
+</body>
+</html>
