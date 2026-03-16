@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiseSync x Love & Pepper | Proposta de Parceria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#82cb15',
+                        darkBg: '#1A1E24',
+                        cardBg: '#252A33',
+                        muted: '#A1A1AA',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+        section { scroll-snap-align: start; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; position: relative; overflow: hidden; }
+        .glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(130,203,21,0.06) 0%, rgba(26,30,36,0) 70%); border-radius: 50%; z-index: 0; pointer-events: none; }
+        .content-card { position: relative; z-index: 10; width: 100%; max-width: 1100px; }
+        body { background-color: #1A1E24; color: white; }
+    </style>
+</head>
+<body>
+
+    <!-- SECTION 1: TITLE -->
+    <section>
+        <div class="glow -top-48 -right-48"></div>
+        <div class="content-card text-center">
+            <h3 class="text-primary uppercase tracking-[4px] font-semibold mb-6 text-sm md:text-base">Apresentação de Parceria Estratégica</h3>
+            <h1 class="font-serif text-5xl md:text-8xl font-bold mb-8">MiseSync x <br><span class="text-primary italic">Love & Pepper</span></h1>
+            <p class="text-muted text-lg md:text-2xl max-w-3xl mx-auto leading-relaxed">
+                A digitalização inteligente do teu fluxo de trabalho: da preparação de kits ao serviço em festivais.
+            </p>
+            <div class="mt-12 animate-bounce">
+                <i class="fa-solid fa-chevron-down text-primary text-2xl"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: O DESAFIO -->
+    <section class="bg-[#161a20]">
+        <div class="content-card">
+            <h2 class="font-serif text-4xl md:text-6xl mb-12 border-l-4 border-primary pl-8">O Caos dos <span class="text-primary italic text-3xl md:text-5xl block mt-2">Bastidores</span></h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <p class="text-xl text-white font-light">Gerir múltiplas frentes — Kits, Eventos e Festivais — exige um esforço administrativo que consome o teu tempo criativo.</p>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <i class="fa-solid fa-circle-check text-primary text-xl mt-1"></i>
+                            <div>
+                                <strong class="block text-white text-lg">Dispersão de Dados</strong>
+                                <span class="text-muted">Encomendas no WhatsApp, receitas em Excel e pagamentos em papel.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <i class="fa-solid fa-circle-check text-primary text-xl mt-1"></i>
+                            <div>
+                                <strong class="block text-white text-lg">Logística de Festivais</strong>
+                                <span class="text-muted">Dificuldade em registar vendas rápidas e controlar o stock em tempo real.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <i class="fa-solid fa-circle-check text-primary text-xl mt-1"></i>
+                            <div>
+                                <strong class="block text-white text-lg">Cálculo de Insumos</strong>
+                                <span class="text-muted">Somar manualmente quantidades de ingredientes para dezenas de kits.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-2xl border border-white/5 grayscale-[30%] hover:grayscale-0 transition-all duration-700">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/027/488/307/small_2x/shock-over-bookkeeping-by-female-chef-and-restaurant-owner-sitting-over-paperwork-photo.jpg" alt="Caos Administrativo na Cozinha" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: CONCEITO -->
+    <section>
+        <div class="glow bottom-0 left-0"></div>
+        <div class="content-card text-center">
+            <h2 class="font-serif text-4xl md:text-6xl mb-16 text-center">O Teu Negócio, <span class="text-primary italic">A Tua Marca</span></h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-cardBg p-10 rounded-2xl border-t-4 border-white shadow-xl">
+                    <i class="fa-solid fa-star text-3xl mb-6"></i>
+                    <h3 class="font-serif text-3xl mb-4 text-white">O Teu Frontend</h3>
+                    <p class="text-primary font-bold mb-4 uppercase tracking-widest text-sm">Marca Love & Pepper</p>
+                    <p class="text-muted">O teu portal personalizado onde o cliente faz o pedido. A tua identidade visual mantém-se intacta e profissional.</p>
+                </div>
+                <div class="bg-cardBg p-10 rounded-2xl border-b-4 border-primary shadow-xl">
+                    <i class="fa-solid fa-server text-primary text-3xl mb-6"></i>
+                    <h3 class="font-serif text-3xl mb-4 text-white">O Nosso Backend</h3>
+                    <p class="text-primary font-bold mb-4 uppercase tracking-widest text-sm">O Motor MiseSync</p>
+                    <p class="text-muted">A tecnologia invisível que organiza os teus pedidos, gera listas de compras e controla as vendas de balcão.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: MÓDULOS -->
+    <section class="bg-[#161a20]">
+        <div class="content-card">
+            <h2 class="font-serif text-4xl md:text-6xl mb-12 text-center">Soluções <span class="text-primary italic">Sob Medida</span></h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-cardBg p-8 rounded-xl border border-white/5">
+                    <i class="fa-solid fa-boxes-stacked text-primary text-3xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Kits & Produção</h3>
+                    <p class="text-sm text-muted">Consolidação automática de pedidos semanais em fichas de produção e listas de compras únicas.</p>
+                </div>
+                <div class="bg-cardBg p-8 rounded-xl border border-white/5">
+                    <i class="fa-solid fa-store text-primary text-3xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Festivais (POS)</h3>
+                    <p class="text-sm text-muted">Interface mobile para venda rápida. Registo de MBWay e Dinheiro em dois toques com fecho de caixa.</p>
+                </div>
+                <div class="bg-cardBg p-8 rounded-xl border border-white/5">
+                    <i class="fa-solid fa-calendar-check text-primary text-3xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Agenda Híbrida</h3>
+                    <p class="text-sm text-muted">Calendário centralizado para eventos privados, datas de produção e banca de rua.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: A PROPOSTA -->
+    <section>
+        <div class="content-card text-center">
+            <h2 class="font-serif text-4xl md:text-6xl mb-16">Estatuto <span class="text-primary italic">Laboratório Beta</span></h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-cardBg/50 p-8 rounded-2xl border border-white/5">
+                    <i class="fa-solid fa-shield-halved text-primary text-4xl mb-6"></i>
+                    <h4 class="text-xl font-bold mb-2">Setup Zero</h4>
+                    <p class="text-muted text-sm leading-relaxed">Assumo 100% do custo técnico de desenvolvimento e infraestrutura Cloud.</p>
+                </div>
+                <div class="bg-cardBg/50 p-8 rounded-2xl border border-blue-500/30">
+                    <i class="fa-solid fa-comments text-blue-500 text-4xl mb-6"></i>
+                    <h4 class="text-xl font-bold mb-2 text-blue-500">Design Partners</h4>
+                    <p class="text-muted text-sm leading-relaxed">O teu único "trabalho" é usar a app e dizer o que precisa de ser melhorado.</p>
+                </div>
+                <div class="bg-cardBg/50 p-8 rounded-2xl border border-primary/30">
+                    <i class="fa-solid fa-box-open text-primary text-4xl mb-6"></i>
+                    <h4 class="text-xl font-bold mb-2 uppercase">Permuta</h4>
+                    <p class="text-muted text-sm leading-relaxed font-semibold text-primary">Acesso Vitalício Gratuito</p>
+                    <p class="text-muted text-xs mt-2 italic text-white/60">Em troca de uns belos kits de refeição ocasionalmente!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: ROADMAP -->
+    <section class="bg-[#161a20]">
+        <div class="content-card">
+            <h2 class="font-serif text-4xl md:text-6xl mb-12 text-center">O <span class="text-primary italic">Caminho</span></h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="flex items-center gap-6 bg-cardBg p-4 rounded-xl border-l-4 border-primary shadow-lg">
+                    <span class="w-10 h-10 rounded-full bg-primary text-darkBg flex items-center justify-center font-bold">1</span>
+                    <div>
+                        <h4 class="font-bold text-white">Acordo de Parceria (Hoje)</h4>
+                        <p class="text-muted text-sm">Definição do estatuto de Laboratório e Permuta.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6 bg-cardBg p-4 rounded-xl border-l-4 border-white/10">
+                    <span class="w-10 h-10 rounded-full bg-darkBg text-white flex items-center justify-center font-bold border border-white/20">2</span>
+                    <div>
+                        <h4 class="font-bold text-white">Mapeamento de Processos</h4>
+                        <p class="text-muted text-sm">Questionário técnico para detalhar como geres as compras e vendas.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6 bg-cardBg p-4 rounded-xl border-l-4 border-white/10">
+                    <span class="w-10 h-10 rounded-full bg-darkBg text-white flex items-center justify-center font-bold border border-white/20">3</span>
+                    <div>
+                        <h4 class="font-bold text-white">A Branch 'Beta'</h4>
+                        <p class="text-muted text-sm">Primeiros testes reais na cozinha e nos próximos festivais.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6 bg-cardBg p-4 rounded-xl border-l-4 border-white/10">
+                    <span class="w-10 h-10 rounded-full bg-darkBg text-white flex items-center justify-center font-bold border border-white/20">4</span>
+                    <div>
+                        <h4 class="font-bold text-white">Lançamento Oficial</h4>
+                        <p class="text-muted text-sm">Transição para misesync.com com a tua conta vitalícia ativa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: FINAL CALL -->
+    <section>
+        <div class="glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="content-card text-center">
+            <h2 class="font-serif text-4xl md:text-7xl mb-12">Vamos digitalizar o <br><span class="text-primary italic">Mise en Place?</span></h2>
+            <p class="text-xl md:text-2xl text-muted max-w-2xl mx-auto mb-16 leading-relaxed">
+                Tu manténs o foco na arte dos teus pratos. Eu garanto a tecnologia que organiza a Love & Pepper.
+            </p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSczdzu48HwJPvUcPcvbtIpd4nKoATeIsWOH1F8HMn9xmT0T-Q/viewform?usp=preview" target="_blank" class="bg-primary text-darkBg font-bold px-12 py-4 rounded-lg hover:scale-105 transition-all text-xl uppercase tracking-widest shadow-[0_0_30px_rgba(130,203,21,0.2)]">Avançamos?</a>
+            </div>
+            
+            <div class="mt-20">
+                <a href="index.html" class="group text-muted hover:text-primary transition-all duration-300 flex items-center justify-center gap-3">
+                    <span class="uppercase tracking-[4px] text-xs font-semibold">Visite o nosso website:</span>
+                    <span class="font-bold border-b border-muted group-hover:border-primary">misesync.com</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
