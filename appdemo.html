@@ -70,6 +70,16 @@
         /* Lógica de Views */
         .view-section { display: none; width: 100%; }
         .view-section.active { display: flex; }
+
+        /* Botão Flutuante Draggable */
+        #floating-back-btn {
+            touch-action: none;
+            user-select: none;
+            opacity: 0.85;
+        }
+        #floating-back-btn:active {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col items-center">
@@ -540,7 +550,7 @@
     </div>
 
     <!-- BOTÃO FLUTUANTE UNIVERSAL (Mudar Ecrã) -->
-    <button id="floating-back-btn" onclick="switchView('view-selector')" style="display: none;" class="fixed bottom-6 right-6 z-[9999] flex items-center gap-2 bg-[#82cb15] text-[#1f3700] px-5 py-3 rounded-full font-bold shadow-[0_10px_25px_rgba(130,203,21,0.4)] hover:scale-105 hover:bg-[#9ce838] transition-all">
+    <button id="floating-back-btn" style="display: none;" class="fixed bottom-[100px] right-6 z-[9999] flex items-center gap-2 bg-[#82cb15] text-[#1f3700] px-5 py-3 rounded-full font-bold shadow-[0_10px_25px_rgba(130,203,21,0.4)] hover:bg-[#9ce838]">
         <span class="material-symbols-outlined">grid_view</span> Mudar Ecrã
     </button>
 
@@ -562,6 +572,66 @@
                 backBtn.style.display = 'flex';
             }
         }
+
+        // Lógica de Drag & Drop para o botão flutuante
+        const dragItem = document.getElementById("floating-back-btn");
+        let active = false;
+        let currentX = 0, currentY = 0, initialX = 0, initialY = 0, xOffset = 0, yOffset = 0;
+        let isDragging = false;
+
+        function dragStart(e) {
+            if (e.type === "touchstart") {
+                initialX = e.touches[0].clientX - xOffset;
+                initialY = e.touches[0].clientY - yOffset;
+            } else {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+            }
+            active = true;
+            isDragging = false;
+        }
+
+        function dragEnd(e) {
+            initialX = currentX;
+            initialY = currentY;
+            active = false;
+        }
+
+        function drag(e) {
+            if (active) {
+                e.preventDefault();
+                isDragging = true;
+                if (e.type === "touchmove") {
+                    currentX = e.touches[0].clientX - initialX;
+                    currentY = e.touches[0].clientY - initialY;
+                } else {
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+                }
+                xOffset = currentX;
+                yOffset = currentY;
+                setTranslate(currentX, currentY, dragItem);
+            }
+        }
+
+        function setTranslate(xPos, yPos, el) {
+            el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+        }
+
+        dragItem.addEventListener("touchstart", dragStart, { passive: false });
+        dragItem.addEventListener("touchend", dragEnd, false);
+        dragItem.addEventListener("touchmove", drag, { passive: false });
+
+        dragItem.addEventListener("mousedown", dragStart, false);
+        dragItem.addEventListener("mouseup", dragEnd, false);
+        dragItem.addEventListener("mousemove", drag, false);
+
+        // Previne o clique de acontecer se o utilizador apenas estiver a arrastar
+        dragItem.addEventListener("click", function(e) {
+            if (!isDragging) {
+                switchView('view-selector');
+            }
+        });
     </script>
 </body>
 </html>
