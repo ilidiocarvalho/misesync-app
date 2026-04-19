@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>MiseSync | Protótipo Unificado</title>
+    
+    <!-- Tailwind & Fonts -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <!-- Configuração Combinada do Tailwind (Extraída dos 3 ficheiros Stitch) -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9ce838",
+                        "primary-container": "#82cb15",
+                        "on-primary": "#1f3700",
+                        "on-primary-container": "#305100",
+                        "surface": "#111418",
+                        "surface-dim": "#111418",
+                        "surface-bright": "#36393e",
+                        "surface-container-lowest": "#0b0e12",
+                        "surface-container-low": "#191c20",
+                        "surface-container": "#1d2024",
+                        "surface-container-high": "#272a2f",
+                        "surface-container-highest": "#323539",
+                        "surface-variant": "#323539",
+                        "on-surface": "#e1e2e8",
+                        "on-surface-variant": "#c1cab0",
+                        "outline": "#8b947d",
+                        "outline-variant": "#414936",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6"
+                    },
+                    fontFamily: {
+                        "headline": ["Playfair Display", "serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #0f1216; 
+            color: #e1e2e8; 
+            margin: 0;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .font-headline { font-family: 'Playfair Display', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        .font-label { font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.filled { font-variation-settings: 'FILL' 1; }
+        
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #323539; border-radius: 4px; }
+        
+        /* Lógica de Views */
+        .view-section { display: none; width: 100%; }
+        .view-section.active { display: flex; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col items-center">
+
+    <!-- ========================================================================= -->
+    <!-- ECRÃ DE SELEÇÃO (LOGIN FALSO) -->
+    <!-- ========================================================================= -->
+    <div id="view-selector" class="view-section active min-h-screen flex-col items-center justify-center p-6 relative bg-[#0f1216] w-full">
+        <!-- Efeito de fundo -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#82cb15]/10 blur-[100px] rounded-full pointer-events-none"></div>
+        
+        <div class="text-center mb-12 z-10">
+            <h1 class="font-headline italic text-5xl text-white mb-2">Mise<span class="text-[#82cb15] font-body not-italic font-bold">Sync</span></h1>
+            <p class="text-slate-400 font-body">Protótipo de Demonstração Interativo</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl z-10">
+            <button onclick="switchView('view-client')" class="bg-surface-container-high border border-white/10 hover:border-[#82cb15]/50 hover:bg-surface-container-highest transition-all p-8 rounded-2xl flex flex-col items-center gap-4 group">
+                <div class="w-16 h-16 rounded-full bg-[#82cb15]/10 text-[#82cb15] flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-3xl">restaurant_menu</span>
+                </div>
+                <h2 class="text-xl font-bold text-white font-body">Portal do Cliente</h2>
+                <p class="text-sm text-slate-400 text-center font-body">A visão do Atleta no telemóvel. Onde escolhe a proteína e avalia o prato.</p>
+            </button>
+
+            <button onclick="switchView('view-gestor')" class="bg-surface-container-high border border-white/10 hover:border-blue-500/50 hover:bg-surface-container-highest transition-all p-8 rounded-2xl flex flex-col items-center gap-4 group">
+                <div class="w-16 h-16 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-3xl">dashboard</span>
+                </div>
+                <h2 class="text-xl font-bold text-white font-body">Portal do Gestor</h2>
+                <p class="text-sm text-slate-400 text-center font-body">A Torre de Controlo (Desktop). Agenda, Alertas e Gestão de Custos.</p>
+            </button>
+
+            <button onclick="switchView('view-chef')" class="bg-surface-container-high border border-white/10 hover:border-orange-500/50 hover:bg-surface-container-highest transition-all p-8 rounded-2xl flex flex-col items-center gap-4 group">
+                <div class="w-16 h-16 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-3xl">soup_kitchen</span>
+                </div>
+                <h2 class="text-xl font-bold text-white font-body">Portal do Chef</h2>
+                <p class="text-sm text-slate-400 text-center font-body">O mapa de tarefas do Staff. Alertas de restrições (Glúten) e Turnos.</p>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ========================================================================= -->
+    <!-- 1. PORTAL DO CLIENTE (MOBILE FIRST) - CÓDIGO EXATO DO STITCH -->
+    <!-- ========================================================================= -->
+    <div id="view-client" class="view-section w-full min-h-screen justify-center bg-black/60 relative">
+        <!-- Código exato do ficheiro MiseSync Client portal.html.txt -->
+        <div class="w-full max-w-md relative min-h-screen flex flex-col bg-surface overflow-hidden shadow-2xl shadow-black pb-24">
+            
+            <!-- TopNavBar -->
+            <header class="fixed top-0 w-full z-50 bg-[#111418]/80 backdrop-blur-lg shadow-2xl shadow-black/40 flex justify-between items-center px-6 py-4 max-w-md mx-auto no-border tonal-shift">
+                <div class="flex flex-col">
+                    <span class="font-headline italic text-2xl text-white tracking-tighter">Mise<span class="text-primary-container not-italic font-sans font-bold">Sync</span></span>
+                    <span class="font-body text-sm tracking-tight text-slate-400 mt-1">Olá, Atleta Elite A</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-xs font-bold text-error bg-error/10 px-2 py-1 rounded-lg">Saldo: -45,50€</span>
+                    <div class="h-10 w-10 rounded-full bg-surface-container-high overflow-hidden border border-white/10 flex items-center justify-center text-primary-container scale-95 active:opacity-80 transition-all cursor-pointer">
+                        <span class="material-symbols-outlined" style="font-size: 28px;">account_circle</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content Canvas -->
+            <main class="flex-1 mt-24 px-4 flex flex-col gap-6">
+                <!-- Section 1: Feedback do Dia Anterior -->
+                <section>
+                    <div class="bg-surface-container-high rounded-xl p-5 border border-white/5 relative overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.3)]">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-500/50 to-orange-400/20"></div>
+                        <div class="flex justify-between items-start mb-4 mt-1">
+                            <h2 class="font-headline text-lg text-white">Feedback do Dia Anterior</h2>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-orange-500/20 text-orange-400 px-2 py-1 rounded-md">Feedback Pendente</span>
+                        </div>
+                        <p class="text-sm text-on-surface-variant mb-4 font-body">Como estava o Jantar de ontem? (Frango Grelhado com Batata Doce)</p>
+                        <div class="flex gap-2 mb-6 justify-center">
+                            <span class="material-symbols-outlined text-3xl text-surface-variant hover:text-primary transition-colors cursor-pointer">star</span>
+                            <span class="material-symbols-outlined text-3xl text-surface-variant hover:text-primary transition-colors cursor-pointer">star</span>
+                            <span class="material-symbols-outlined text-3xl text-surface-variant hover:text-primary transition-colors cursor-pointer">star</span>
+                            <span class="material-symbols-outlined text-3xl text-surface-variant hover:text-primary transition-colors cursor-pointer">star</span>
+                            <span class="material-symbols-outlined text-3xl text-surface-variant hover:text-primary transition-colors cursor-pointer">star</span>
+                        </div>
+                        <textarea class="w-full bg-surface-container border-0 rounded-lg p-3 text-sm text-on-surface placeholder-on-surface-variant/50 focus:ring-1 focus:ring-primary focus:outline-none mb-4 resize-none h-20" placeholder="Deixar uma nota ao Chef..."></textarea>
+                        <button class="w-full py-3 rounded-xl border border-white/10 text-white font-bold text-sm hover:border-white/20 transition-colors bg-transparent flex justify-center items-center gap-2">
+                            <span>Enviar Feedback</span>
+                            <span class="material-symbols-outlined text-lg">send</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Section 2: Escolhas para Amanhã -->
+                <section>
+                    <div class="bg-surface-container-low rounded-xl p-5 border border-white/5 relative shadow-[0_8px_30px_rgb(0,0,0,0.3)]">
+                        <div class="flex items-center gap-2 mb-4 bg-surface-container p-3 rounded-lg border-l-2 border-primary">
+                            <span class="material-symbols-outlined text-primary text-xl">schedule</span>
+                            <span class="text-xs text-on-surface-variant font-medium">As escolhas para amanhã fecham às 20h00</span>
+                        </div>
+                        <h2 class="font-headline text-2xl text-white mb-6">Escolhas para Amanhã</h2>
+                        
+                        <div class="flex items-center justify-between mb-6 bg-surface-container-high p-4 rounded-xl border border-white/5">
+                            <span class="text-sm font-medium text-white">Número de Doses</span>
+                            <div class="flex items-center gap-4">
+                                <button class="w-8 h-8 rounded-full bg-surface border border-white/10 flex items-center justify-center text-on-surface hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-sm">remove</span>
+                                </button>
+                                <span class="text-lg font-headline font-bold text-white w-4 text-center">1</span>
+                                <button class="w-8 h-8 rounded-full bg-surface border border-white/10 flex items-center justify-center text-on-surface hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-sm">add</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mb-8">
+                            <span class="text-sm font-medium text-on-surface-variant mb-3 block">Proteína</span>
+                            <div class="grid grid-cols-3 gap-3">
+                                <label class="cursor-pointer">
+                                    <input class="peer sr-only" name="protein" type="radio"/>
+                                    <div class="bg-surface-container border border-white/5 rounded-xl py-3 text-center transition-all peer-checked:bg-primary/10 peer-checked:border-primary peer-checked:text-primary">
+                                        <span class="material-symbols-outlined mb-1 text-2xl block">set_meal</span>
+                                        <span class="text-xs font-bold">Peixe</span>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input class="peer sr-only" name="protein" type="radio"/>
+                                    <div class="bg-surface-container border border-white/5 rounded-xl py-3 text-center transition-all peer-checked:bg-primary/10 peer-checked:border-primary peer-checked:text-primary">
+                                        <span class="material-symbols-outlined mb-1 text-2xl block">grocery</span>
+                                        <span class="text-xs font-bold">Carne</span>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input checked class="peer sr-only" name="protein" type="radio"/>
+                                    <div class="bg-surface-container border border-white/5 rounded-xl py-3 text-center transition-all peer-checked:bg-primary/10 peer-checked:border-primary peer-checked:text-primary">
+                                        <span class="material-symbols-outlined mb-1 text-2xl block">nutrition</span>
+                                        <span class="text-xs font-bold">Vegetariano</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <button class="w-full py-4 rounded-xl bg-gradient-to-br from-[#9ce838] to-[#82cb15] text-[#1f3700] font-bold text-sm transition-transform active:scale-95 shadow-[0_10px_20px_rgba(156,232,56,0.2)]">
+                            Confirmar Menu de Amanhã
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Section 3: Próximas Refeições -->
+                <section class="mb-8">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-on-surface-variant mb-4 px-2">Próximas Refeições</h3>
+                    <div class="flex flex-col gap-3">
+                        <div class="bg-surface-container-high rounded-xl p-4 flex justify-between items-center border border-white/5 shadow-sm">
+                            <div class="flex flex-col">
+                                <span class="text-sm font-bold text-white mb-1">Hoje, 19 Abr</span>
+                                <span class="text-xs text-on-surface-variant flex items-center gap-1">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-primary block"></span> Menu Confirmado - Veg
+                                </span>
+                            </div>
+                            <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                        </div>
+                        <div class="bg-surface-container rounded-xl p-4 flex justify-between items-center border border-white/5 opacity-80">
+                            <div class="flex flex-col">
+                                <span class="text-sm font-bold text-on-surface mb-1">Quarta, 22 Abr</span>
+                                <span class="text-xs text-on-surface-variant flex items-center gap-1">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-surface-variant block"></span> Pendente
+                                </span>
+                            </div>
+                            <span class="material-symbols-outlined text-surface-variant text-xl">pending</span>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- BottomNavBar -->
+            <nav class="fixed bottom-0 left-0 right-0 w-full max-w-md mx-auto flex justify-around items-center pt-3 pb-8 px-4 bg-[#111418]/90 backdrop-blur-xl rounded-t-3xl border-t border-white/5 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] z-50">
+                <div class="flex flex-col items-center justify-center text-[#9ce838] scale-110 transition-transform cursor-pointer">
+                    <span class="material-symbols-outlined filled mb-1" style="font-size: 24px;">restaurant</span>
+                    <span class="font-body text-[10px] uppercase tracking-widest font-bold">Início</span>
+                </div>
+                <div class="flex flex-col items-center justify-center text-slate-500 hover:text-white transition-all cursor-pointer">
+                    <span class="material-symbols-outlined mb-1" style="font-size: 24px;">calendar_month</span>
+                    <span class="font-body text-[10px] uppercase tracking-widest font-bold">Semana</span>
+                </div>
+                <div class="flex flex-col items-center justify-center text-slate-500 hover:text-white transition-all cursor-pointer">
+                    <span class="material-symbols-outlined mb-1" style="font-size: 24px;">receipt_long</span>
+                    <span class="font-body text-[10px] uppercase tracking-widest font-bold">Wallet</span>
+                </div>
+                <div class="flex flex-col items-center justify-center text-slate-500 hover:text-white transition-all cursor-pointer">
+                    <span class="material-symbols-outlined mb-1" style="font-size: 24px;">person</span>
+                    <span class="font-body text-[10px] uppercase tracking-widest font-bold">Perfil</span>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+    <!-- ========================================================================= -->
+    <!-- 2. PORTAL DO GESTOR (DESKTOP) - CÓDIGO EXATO DO STITCH -->
+    <!-- ========================================================================= -->
+    <div id="view-gestor" class="view-section w-full min-h-screen bg-[#0f1216]">
+        <!-- Código exato do ficheiro MiseSync Gestor portal.html.txt -->
+        <div class="flex h-screen bg-surface w-full max-w-[1440px] mx-auto overflow-hidden relative">
+            
+            <!-- Sidebar -->
+            <nav class="w-20 md:w-64 flex flex-col bg-surface-container-low border-r border-white/5 h-full">
+                <div class="h-20 flex items-center justify-center md:justify-start md:px-6 border-b border-white/5">
+                    <span class="font-headline italic text-2xl text-white hidden md:block">Mise<span class="text-primary not-italic font-sans font-bold">Sync</span></span>
+                    <span class="font-headline italic text-2xl text-primary md:hidden">M</span>
+                </div>
+                <div class="flex-1 py-6 flex flex-col gap-2 px-3">
+                    <a href="#" class="flex items-center gap-4 px-3 py-3 bg-primary/10 text-primary rounded-xl transition-colors">
+                        <span class="material-symbols-outlined">dashboard</span>
+                        <span class="font-body font-medium hidden md:block">Dashboard</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-4 px-3 py-3 text-on-surface-variant hover:text-white hover:bg-surface-container-high rounded-xl transition-colors">
+                        <span class="material-symbols-outlined">groups</span>
+                        <span class="font-body font-medium hidden md:block">Clientes</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-4 px-3 py-3 text-on-surface-variant hover:text-white hover:bg-surface-container-high rounded-xl transition-colors">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        <span class="font-body font-medium hidden md:block">Agenda</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-4 px-3 py-3 text-on-surface-variant hover:text-white hover:bg-surface-container-high rounded-xl transition-colors">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <span class="font-body font-medium hidden md:block">Compras</span>
+                    </a>
+                </div>
+                <div class="p-4 border-t border-white/5">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-surface-container-highest border border-white/10 flex items-center justify-center text-on-surface">
+                            <span class="material-symbols-outlined">person</span>
+                        </div>
+                        <div class="hidden md:block">
+                            <p class="text-sm font-medium text-white">Chef Umami</p>
+                            <p class="text-xs text-on-surface-variant">Gestor</p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="flex-1 flex flex-col h-full relative overflow-y-auto">
+                <header class="h-20 flex items-center justify-between px-8 border-b border-white/5 bg-surface/50 backdrop-blur-md sticky top-0 z-10">
+                    <div>
+                        <h1 class="font-headline text-2xl text-white">Bom dia, Gestor!</h1>
+                        <p class="font-body text-sm text-on-surface-variant mt-1">24 de Abril, Terça-feira</p>
+                    </div>
+                    <div class="relative cursor-pointer">
+                        <span class="material-symbols-outlined text-on-surface-variant hover:text-white transition-colors text-2xl">notifications</span>
+                        <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-error rounded-full border-2 border-surface"></span>
+                    </div>
+                </header>
+
+                <div class="p-8 flex flex-col gap-8">
+                    <!-- KPIs -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-surface-container-low border border-white/5 rounded-2xl p-6 flex items-center gap-5 shadow-lg">
+                            <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined text-3xl">restaurant</span>
+                            </div>
+                            <div>
+                                <p class="font-body text-sm text-on-surface-variant mb-1">Refeições para Amanhã</p>
+                                <p class="font-headline text-4xl text-white font-bold">24</p>
+                            </div>
+                        </div>
+                        <div class="bg-surface-container-low border border-white/5 rounded-2xl p-6 flex items-center gap-5 shadow-lg">
+                            <div class="w-14 h-14 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400">
+                                <span class="material-symbols-outlined text-3xl">receipt_long</span>
+                            </div>
+                            <div>
+                                <p class="font-body text-sm text-on-surface-variant mb-1">Food Cost (Hoje)</p>
+                                <p class="font-headline text-4xl text-orange-400 font-bold">145,50€</p>
+                            </div>
+                        </div>
+                        <div class="bg-surface-container-low border border-error/20 rounded-2xl p-6 flex items-center gap-5 shadow-lg relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-16 h-16 bg-error/5 rounded-bl-full"></div>
+                            <div class="w-14 h-14 rounded-xl bg-error/10 flex items-center justify-center text-error">
+                                <span class="material-symbols-outlined text-3xl">warning</span>
+                            </div>
+                            <div>
+                                <p class="font-body text-sm text-on-surface-variant mb-1">Pendências</p>
+                                <p class="font-headline text-4xl text-error font-bold">2</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+                        <!-- Alertas Críticos -->
+                        <div class="xl:col-span-2 flex flex-col gap-4">
+                            <h2 class="font-headline text-xl text-white">Alertas Críticos</h2>
+                            <div class="bg-surface-container-low border border-orange-500/30 rounded-2xl overflow-hidden shadow-lg">
+                                <div class="p-5 border-b border-white/5 flex items-start gap-4 hover:bg-surface-container-high transition-colors group cursor-pointer">
+                                    <div class="mt-1 text-orange-400"><span class="material-symbols-outlined">schedule</span></div>
+                                    <div class="flex-1">
+                                        <h3 class="font-body font-semibold text-white text-base">Atleta Elite A ainda não escolheu o menu para amanhã</h3>
+                                        <p class="font-body text-sm text-on-surface-variant mt-1">Falta 1h para o fecho (20h00).</p>
+                                    </div>
+                                    <button class="bg-surface border border-white/10 text-white font-body text-xs px-3 py-1.5 rounded-lg hover:border-white/30 transition-colors">Avisar</button>
+                                </div>
+                                <div class="p-5 flex items-start gap-4 hover:bg-surface-container-high transition-colors group cursor-pointer">
+                                    <div class="mt-1 text-error"><span class="material-symbols-outlined">star_half</span></div>
+                                    <div class="flex-1">
+                                        <h3 class="font-body font-semibold text-white text-base">Feedback baixo recebido</h3>
+                                        <p class="font-body text-sm text-on-surface-variant mt-1">Família Silva avaliou o jantar de ontem com 2 estrelas.</p>
+                                    </div>
+                                    <button class="bg-surface border border-white/10 text-white font-body text-xs px-3 py-1.5 rounded-lg hover:border-white/30 transition-colors">Ver Detalhe</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Agenda do Dia -->
+                        <div class="flex flex-col gap-4">
+                            <h2 class="font-headline text-xl text-white">Agenda do Dia</h2>
+                            <div class="bg-surface-container-low border border-white/5 rounded-2xl overflow-hidden shadow-lg">
+                                <!-- Agenda Item 1 -->
+                                <div class="p-6 border-b border-white/5 hover:bg-surface-container-high transition-colors flex items-center justify-between group">
+                                    <div class="flex items-center gap-6">
+                                        <div class="w-12 h-12 rounded-full bg-surface-container-highest border border-white/10 flex items-center justify-center text-primary font-headline text-xl">J</div>
+                                        <div>
+                                            <h4 class="font-body font-medium text-on-surface text-lg">Chef João</h4>
+                                            <p class="font-body text-sm text-on-surface-variant flex items-center gap-2 mt-1">
+                                                <span class="material-symbols-outlined text-[16px]">local_shipping</span> Entrega Kits / Cozinha Central
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-label text-sm text-primary tracking-wider bg-primary/10 px-3 py-1 rounded-full border border-primary/20 inline-block">10:00 - 14:00</div>
+                                    </div>
+                                </div>
+                                <!-- Agenda Item 2 -->
+                                <div class="p-6 hover:bg-surface-container-high transition-colors flex items-center justify-between group">
+                                    <div class="flex items-center gap-6">
+                                        <div class="w-12 h-12 rounded-full bg-surface-container-highest border border-white/10 flex items-center justify-center text-primary font-headline text-xl">R</div>
+                                        <div>
+                                            <h4 class="font-body font-medium text-on-surface text-lg">Chef Rui</h4>
+                                            <p class="font-body text-sm text-on-surface-variant flex items-center gap-2 mt-1">
+                                                <span class="material-symbols-outlined text-[16px]">home</span> Casa Atleta B
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-label text-sm text-on-surface-variant tracking-wider bg-surface-container-highest px-3 py-1 rounded-full border border-white/10 inline-block">18:00 - 22:00</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+    <!-- ========================================================================= -->
+    <!-- 3. PORTAL DO CHEF (STAFF) - CÓDIGO EXATO DO STITCH -->
+    <!-- ========================================================================= -->
+    <div id="view-chef" class="view-section w-full min-h-screen justify-center bg-black/60 relative">
+        <!-- Código exato do ficheiro MiseSync Chef portal.html.txt -->
+        <div class="w-full max-w-md relative min-h-[100dvh] flex flex-col bg-surface overflow-hidden shadow-2xl shadow-black pb-24 mx-auto">
+            
+            <!-- TopNavBar -->
+            <header class="flex justify-between items-center px-6 py-5 bg-[#111418] border-b border-white/5 sticky top-0 z-40">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-surface-container-high border border-white/10 flex items-center justify-center overflow-hidden">
+                        <span class="material-symbols-outlined text-slate-300">person</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-headline text-lg text-white leading-tight">Bom dia, Chef João!</span>
+                        <span class="font-body text-xs text-slate-400">Hoje, 24 Abr</span>
+                    </div>
+                </div>
+                <div class="flex flex-col items-end">
+                    <span class="font-headline italic text-lg text-white leading-tight">Mise<span class="text-primary not-italic font-sans font-bold">Sync</span></span>
+                </div>
+            </header>
+
+            <main class="flex-1 px-4 py-6 flex flex-col gap-6 overflow-y-auto">
+                <!-- Bloco 1: O Meu Turno -->
+                <section>
+                    <h3 class="font-label text-xs text-slate-500 mb-3 ml-1">O Meu Turno</h3>
+                    <div class="bg-surface-container-high rounded-2xl p-5 border border-white/5 shadow-lg relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full pointer-events-none"></div>
+                        <div class="flex items-start gap-4 mb-6 relative z-10">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                                <span class="material-symbols-outlined text-2xl">location_on</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-headline text-xl text-white mb-1">Casa Atleta Elite A</span>
+                                <span class="font-body text-sm text-slate-400">Foz do Douro</span>
+                                <div class="flex items-center gap-1.5 mt-2 bg-surface-container px-2.5 py-1 rounded-md w-fit border border-white/5">
+                                    <span class="material-symbols-outlined text-[14px] text-slate-300">schedule</span>
+                                    <span class="font-body text-xs text-slate-300 font-medium">10:00h - 14:00h</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="w-full py-3.5 rounded-xl border-2 border-primary text-primary font-body font-bold text-sm hover:bg-primary hover:text-surface transition-colors active:scale-[0.98]">
+                            Iniciar Turno / Check-in
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Bloco 2: Alertas Médicos -->
+                <section>
+                    <div class="bg-error-container/20 rounded-2xl p-5 border border-error/30 shadow-lg shadow-error/5">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="material-symbols-outlined text-error">warning</span>
+                            <h3 class="font-label text-sm text-error font-bold">Restrições Intocáveis</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-error text-white font-body text-xs font-bold px-3 py-1.5 rounded-md uppercase tracking-wider shadow-md">Sem Glúten</span>
+                            <span class="bg-error text-white font-body text-xs font-bold px-3 py-1.5 rounded-md uppercase tracking-wider shadow-md">Alergia a Amendoim</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bloco 3: Ficha de Produção -->
+                <section class="pb-6">
+                    <h3 class="font-label text-xs text-slate-500 mb-3 ml-1">Para Cozinhar Hoje</h3>
+                    <div class="bg-surface-container-low rounded-2xl border border-white/5 overflow-hidden">
+                        <label class="flex items-start gap-4 p-4 border-b border-white/5 hover:bg-surface-container-high transition-colors cursor-pointer group">
+                            <div class="mt-0.5">
+                                <input type="checkbox" class="w-5 h-5 rounded border-slate-600 bg-surface-container text-primary focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer"/>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-body font-medium text-white group-hover:text-primary transition-colors">1 Dose - Peixe</span>
+                                <span class="font-body text-sm text-slate-400 mt-0.5">Salmão c/ Legumes</span>
+                            </div>
+                        </label>
+                        <label class="flex items-start gap-4 p-4 border-b border-white/5 hover:bg-surface-container-high transition-colors cursor-pointer group">
+                            <div class="mt-0.5">
+                                <input type="checkbox" class="w-5 h-5 rounded border-slate-600 bg-surface-container text-primary focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer"/>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-body font-medium text-white group-hover:text-primary transition-colors">1 Dose - Ovo-lacto-vegetariano</span>
+                                <span class="font-body text-sm text-slate-400 mt-0.5">Tofu Braseado</span>
+                            </div>
+                        </label>
+                        <label class="flex items-start gap-4 p-4 hover:bg-surface-container-high transition-colors cursor-pointer group opacity-60">
+                            <div class="mt-0.5">
+                                <input type="checkbox" checked class="w-5 h-5 rounded border-slate-600 bg-surface-container text-primary focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer"/>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-body font-medium text-slate-300 line-through">Preparar Snacks da tarde</span>
+                            </div>
+                        </label>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Bottom Nav -->
+            <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md flex justify-around items-center px-4 py-3 pb-safe bg-[#111418]/80 backdrop-blur-2xl z-50 rounded-t-xl border-t border-white/5 shadow-[0px_-10px_30px_rgba(0,0,0,0.5)]">
+                <button class="flex flex-col items-center justify-center bg-primary/10 text-primary rounded-lg px-3 py-1 hover:bg-white/5 transition-all">
+                    <span class="material-symbols-outlined text-2xl mb-1 filled">schedule</span>
+                    <span class="font-body text-[10px] uppercase font-bold tracking-widest">Turno</span>
+                </button>
+                <button class="flex flex-col items-center justify-center text-slate-500 hover:text-white transition-all px-3 py-1 rounded-lg">
+                    <span class="material-symbols-outlined text-2xl mb-1">restaurant_menu</span>
+                    <span class="font-body text-[10px] uppercase font-bold tracking-widest">Receitas</span>
+                </button>
+                <button class="flex flex-col items-center justify-center text-slate-500 hover:text-white transition-all px-3 py-1 rounded-lg">
+                    <span class="material-symbols-outlined text-2xl mb-1">inventory_2</span>
+                    <span class="font-body text-[10px] uppercase font-bold tracking-widest">Stock</span>
+                </button>
+                <button class="flex flex-col items-center justify-center text-slate-500 hover:text-white transition-all px-3 py-1 rounded-lg">
+                    <span class="material-symbols-outlined text-2xl mb-1">person</span>
+                    <span class="font-body text-[10px] uppercase font-bold tracking-widest">Perfil</span>
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- BOTÃO FLUTUANTE UNIVERSAL (Mudar Ecrã) -->
+    <button id="floating-back-btn" onclick="switchView('view-selector')" style="display: none;" class="fixed bottom-6 right-6 z-[9999] flex items-center gap-2 bg-[#82cb15] text-[#1f3700] px-5 py-3 rounded-full font-bold shadow-[0_10px_25px_rgba(130,203,21,0.4)] hover:scale-105 hover:bg-[#9ce838] transition-all">
+        <span class="material-symbols-outlined">grid_view</span> Mudar Ecrã
+    </button>
+
+    <script>
+        function switchView(viewId) {
+            // Esconder todas as vistas
+            document.querySelectorAll('.view-section').forEach(el => {
+                el.classList.remove('active');
+            });
+            // Mostrar a selecionada
+            document.getElementById(viewId).classList.add('active');
+            window.scrollTo(0, 0);
+
+            // Gerir o botão flutuante
+            const backBtn = document.getElementById('floating-back-btn');
+            if (viewId === 'view-selector') {
+                backBtn.style.display = 'none';
+            } else {
+                backBtn.style.display = 'flex';
+            }
+        }
+    </script>
+</body>
+</html>
